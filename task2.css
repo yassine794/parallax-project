@@ -1,0 +1,331 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow-x:hidden;
+    font-family:'Orbitron', sans-serif;
+    background:#050816;
+    color:white;
+}
+
+/* HERO SECTION */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* PARALLAX LAYERS */
+
+.layer{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:120%;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+/* BACKGROUND SKY */
+
+.sky{
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(2,0,36,0.3),
+        rgba(0,0,0,0.8)
+    ),
+    url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?q=80&w=1600&auto=format&fit=crop");
+
+    z-index:1;
+}
+
+/* CITY LAYER */
+
+.city{
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,0.8),
+        transparent
+    ),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1600&auto=format&fit=crop");
+
+    z-index:2;
+
+    opacity:0.9;
+}
+
+/* FOREGROUND */
+
+.foreground{
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,1),
+        transparent
+    ),
+    url("https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1600&auto=format&fit=crop");
+
+    z-index:3;
+
+    mix-blend-mode:screen;
+    opacity:0.5;
+}
+
+/* TITLE */
+
+.title{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    z-index:10;
+}
+
+.title h1{
+    font-size:5rem;
+    letter-spacing:10px;
+
+    color:#00e5ff;
+
+    text-shadow:
+    0 0 10px #00e5ff,
+    0 0 20px #00e5ff,
+    0 0 40px #00e5ff;
+}
+
+.title p{
+    margin-top:20px;
+    font-size:1.2rem;
+
+    color:#ff4fd8;
+
+    text-shadow:
+    0 0 10px #ff4fd8;
+}
+
+/* CONTENT */
+
+.content{
+    background:#090d1f;
+    min-height:100vh;
+
+    padding:100px 15%;
+
+    line-height:1.8;
+}
+
+.content h2{
+    font-size:2.5rem;
+    margin-bottom:30px;
+
+    color:#00e5ff;
+}
+
+.content p{
+    margin-bottom:25px;
+
+    color:#d7d7d7;
+
+    font-size:1.1rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .title h1{
+        font-size:2.5rem;
+        letter-spacing:5px;
+    }
+
+    .title p{
+        font-size:1rem;
+    }
+
+    .content{
+        padding:70px 10%;
+    }
+}
+
+/* FLOATING NEON OBJECTS */
+
+.neon{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(2px);
+    z-index:5;
+}
+
+.neon1{
+    width:120px;
+    height:120px;
+    background:#00e5ff;
+
+    top:20%;
+    left:10%;
+
+    box-shadow:
+    0 0 20px #00e5ff,
+    0 0 60px #00e5ff;
+}
+
+.neon2{
+    width:80px;
+    height:80px;
+    background:#ff00aa;
+
+    top:60%;
+    right:15%;
+
+    box-shadow:
+    0 0 20px #ff00aa,
+    0 0 60px #ff00aa;
+}
+
+.neon3{
+    width:60px;
+    height:60px;
+    background:#9d4dff;
+
+    top:35%;
+    right:35%;
+
+    box-shadow:
+    0 0 20px #9d4dff,
+    0 0 60px #9d4dff;
+}
+
+.stars{
+    background:
+    radial-gradient(white 1px, transparent 1px);
+
+    background-size:4px 4px;
+
+    opacity:0.25;
+
+    z-index:0;
+}
+
+.fog{
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(0,229,255,0.15),
+        transparent 70%
+    );
+
+    filter:blur(40px);
+
+    opacity:0.8;
+
+    z-index:2;
+
+    animation:fogMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove{
+    from{
+        transform:translateX(-50px);
+    }
+
+    to{
+        transform:translateX(50px);
+    }
+}
+
+.city-back{
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,0.9),
+        transparent
+    ),
+    url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1600&auto=format&fit=crop");
+
+    opacity:0.35;
+
+    z-index:1;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+
+    filter:blur(8px);
+
+    z-index:6;
+
+    animation:float 6s ease-in-out infinite;
+}
+
+.orb1{
+    width:200px;
+    height:200px;
+
+    background:rgba(0,229,255,0.25);
+
+    top:15%;
+    right:20%;
+}
+
+.orb2{
+    width:150px;
+    height:150px;
+
+    background:rgba(255,0,170,0.25);
+
+    bottom:10%;
+    left:15%;
+
+    animation-delay:2s;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.cyber-grid{
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:40%;
+
+    background-image:
+    linear-gradient(rgba(0,229,255,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.2) 1px, transparent 1px);
+
+    background-size:60px 60px;
+
+    transform:
+    perspective(500px)
+    rotateX(75deg);
+
+    transform-origin:bottom;
+
+    z-index:4;
+
+    opacity:0.3;
+}
